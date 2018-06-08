@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://gleb-smagliy@bitbucket.org/gleb-smagliy/apollo-entity.git"
+    "url": "git+https://bitbucket.org/gleb-smagliy/apollo-entity.git"
   },
   "author": "Gleb Smagliy",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/gleb-smagliy/apollo-entity#readme"
+  "homepage": "https://bitbucket.org/gleb-smagliy/apollo-entity#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
+  }
 }
