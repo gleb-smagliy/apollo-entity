@@ -1,10 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const App = () => (
-  <div>
-    <p>React here1111!</p>
-  </div>
-);
-
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('root'));
