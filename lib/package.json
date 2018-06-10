@@ -2,8 +2,10 @@
   "name": "apollo-entity",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://bitbucket.org/gleb-smagliy/apollo-entity.git"
@@ -12,7 +14,15 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/gleb-smagliy/apollo-entity#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-apollo": "^2.1.4"
   }
 }
