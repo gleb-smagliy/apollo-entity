@@ -1,0 +1,10 @@
+.member__row
+{
+  display: flex;
+  padding-bottom: 1em;
+}
+
+.member__field
+{
+  padding-right: 2em;
+}

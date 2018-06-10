@@ -4,7 +4,6 @@ import { withClientState } from 'apollo-link-state';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from "react-apollo";
 import MemberForm, { resolvers, defaults, typeDefs } from './modules/member-form';
-// import Todo from './modules/todo';
 
 const cache = new InMemoryCache();
 
