@@ -10,8 +10,9 @@ export class Entity extends React.Component
     query: PropTypes.object.isRequired,
     variables: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
-    loading: PropTypes.func.isRequired,
-    error: PropTypes.func.isRequired
+    children: PropTypes.node,
+    loading: PropTypes.func,
+    error: PropTypes.func
   };
 
   static defaultProps = {
@@ -50,14 +51,14 @@ export class Entity extends React.Component
     const { data, loading, error } = renderPropArgs;
     const { name, loading: loadingHandler, error: errorHandler, children } = this.props;
 
-    if(loading || !data)
-    {
-      return loadingHandler(renderPropArgs);
-    }
-
     if(error)
     {
       return errorHandler(renderPropArgs);
+    }
+
+    if(!data || loading)
+    {
+      return loadingHandler(renderPropArgs);
     }
 
     return (
