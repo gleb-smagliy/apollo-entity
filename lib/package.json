@@ -4,11 +4,15 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://bitbucket.org/gleb-smagliy/apollo-entity.git"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setup-tests.js"
   },
   "author": "Gleb Smagliy",
   "license": "MIT",
@@ -18,9 +22,16 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.1.0",
+    "react-dom": "^16.4.0"
   },
   "dependencies": {
+    "apollo-client": "^2.3.2",
+    "graphql": "^0.13.2",
+    "node-noop": "^1.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-apollo": "^2.1.4"
