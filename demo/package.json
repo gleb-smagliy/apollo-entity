@@ -5,7 +5,7 @@
   "dependencies": {
     "apollo-cache-inmemory": "1.2.1",
     "apollo-client": "2.3.1",
-    "apollo-entity": "../lib",
+    "apollo-entity": "../",
     "apollo-link-state": "0.4.1",
     "graphql": "0.13.2",
     "graphql-tag": "2.9.2",

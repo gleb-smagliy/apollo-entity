@@ -2,9 +2,9 @@
   "name": "apollo-entity",
   "version": "1.0.1",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./lib/dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir lib/dist",
     "test": "jest"
   },
   "repository": {
