@@ -1,6 +1,6 @@
 {
   "name": "apollo-entity",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "author": "Gleb Smagliy",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/gleb-smagliy/apollo-entity#readme",
+  "homepage": "https://github.com/gleb-smagliy/apollo-entity",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
