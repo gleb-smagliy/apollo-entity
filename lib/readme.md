@@ -5,17 +5,16 @@ gracefully handle local apollo cache changes.
 
 Primitives currently exported as an API:
 
-* Entity - allows you to specify query to get your entity by graphql query
-* Entity.Field - use to retrieve/edit entity field in apollo cache. 
-Also allows you to specify `allow` callback to check if input is appropriate.  
-* Entity.Map - use to retrieve entity. 
-Also allows you to specify `map` callback to map entity to something useful.
+* __Entity__ - allows you to specify query to get your entity by graphql query
+* __Entity.Field__ - use to retrieve/edit entity field in apollo cache. 
+Also allows you to specify `allow` function to check if input is appropriate.  
+* __Entity.Map__ - use to retrieve entity. 
+Also allows you to specify `map` function to map entity to something useful.
  
 This lib was primarily motivated by the need of handling forms.
  
 Here is the example of simple form allowing admin to add a user (member of his community):
- 
- ## Entity
+
  ```javascript
  import { Entity } from 'apollo-entity';
  import gql from 'graphql-tag';
