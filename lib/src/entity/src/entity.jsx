@@ -8,7 +8,9 @@ export class Entity extends React.Component
 {
   static propTypes = {
     query: PropTypes.object.isRequired,
-    variables: PropTypes.object.isRequired,
+    variables: PropTypes.object,
+    client: PropTypes.object.isRequired,
+    defaultEntity: PropTypes.object,
     name: PropTypes.string.isRequired,
     children: PropTypes.node,
     loading: PropTypes.func,
@@ -16,18 +18,25 @@ export class Entity extends React.Component
   };
 
   static defaultProps = {
+    defaultEntity: {},
     children: null,
+    variables: undefined,
     loading: () => null,
     error: () => null
   };
 
   changeField = (field, value) =>
   {
-    const { query, variables, name, client } = this.props;
+    const {
+      query,
+      variables,
+      name,
+      client
+    } = this.props;
 
     const cacheEntity = client.readQuery({ query, variables })[name];
 
-    if(typeof(cacheEntity) !== 'object')
+    if (typeof cacheEntity !== 'object')
     {
       return;
     }
@@ -46,23 +55,30 @@ export class Entity extends React.Component
     });
   };
 
-  handleQuery = renderPropArgs =>
+  handleQuery = (renderPropArgs) =>
   {
-    const { data, loading, error } = renderPropArgs;
-    const { name, loading: loadingHandler, error: errorHandler, children } = this.props;
+    const { data, loading, error, defaultEntity } = renderPropArgs;
+    const {
+      name,
+      loading: loadingHandler,
+      error: errorHandler,
+      children
+    } = this.props;
 
-    if(error)
+    if (error)
     {
       return errorHandler(renderPropArgs);
     }
 
-    if(!data || loading)
+    if (!data || loading)
     {
       return loadingHandler(renderPropArgs);
     }
 
+    const entity = data[name] || defaultEntity;
+
     return (
-      <Provider value={{ changeField: this.changeField, entity: data[name] }}>
+      <Provider value={{ changeField: this.changeField, entity }}>
         {children}
       </Provider>
     );
@@ -70,7 +86,7 @@ export class Entity extends React.Component
 
   render()
   {
-    const { query, variables, name, loading, error, children, ...queryProps } = this.props;
+    const { query, variables, defaultEntity, name, loading, error, children, ...queryProps } = this.props;
 
     return (
       <Query

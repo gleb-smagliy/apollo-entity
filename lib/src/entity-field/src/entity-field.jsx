@@ -7,16 +7,19 @@ export default class EntityField extends React.Component
 {
   static propTypes = {
     allow: PropTypes.func,
-    name: PropTypes.string.isRequired
+    children: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    defaultValue: PropTypes.any
   };
 
   static defaultProps = {
-    allow: () => true
+    allow: () => true,
+    defaultValue: undefined
   };
 
-  changeValue = changeField => value =>
+  changeValue = changeField => (value) =>
   {
-    if(!this.props.allow(value))
+    if (!this.props.allow(value))
     {
       return;
     }
@@ -26,7 +29,9 @@ export default class EntityField extends React.Component
 
   consumeContext = ({ entity, changeField }) =>
   {
-    return this.props.children(entity[this.props.name], this.changeValue(changeField));
+    const value = entity[this.props.name] || this.props.defaultValue;
+
+    return this.props.children(value, this.changeValue(changeField));
   };
 
   render()
