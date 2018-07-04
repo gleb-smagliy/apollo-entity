@@ -57,12 +57,13 @@ export class Entity extends React.Component
 
   handleQuery = (renderPropArgs) =>
   {
-    const { data, loading, error, defaultEntity } = renderPropArgs;
+    const { data, loading, error } = renderPropArgs;
     const {
       name,
       loading: loadingHandler,
       error: errorHandler,
-      children
+      children,
+      defaultEntity
     } = this.props;
 
     if (error)
