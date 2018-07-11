@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import FieldGuard from '../../field-guard';
 import { Consumer } from '../../entity-context';
-
-class FieldGuard extends React.PureComponent
-{
-  render()
-  {
-    return this.props.render(this.props.value, this.props.change);
-  }
-}
 
 export default class EntityField extends React.Component
 {
@@ -40,11 +32,9 @@ export default class EntityField extends React.Component
     const value = entity[this.props.name] || this.props.defaultValue;
 
     return (
-      <FieldGuard
-        render={this.props.children}
-        value={value}
-        change={this.changeValue(changeField)}
-      />
+      <FieldGuard value={value} onChange={this.changeValue(changeField)}>
+        {this.props.children}
+      </FieldGuard>
     );
   };
 

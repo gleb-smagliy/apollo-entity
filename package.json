@@ -4,8 +4,9 @@
   "description": "",
   "main": "./lib/dist/index.js",
   "scripts": {
-    "build": "babel lib/src --out-dir lib/dist",
-    "test": "jest"
+    "build": "babel lib/src --out-dir lib/dist --ignore lib/src/**/*.test.js",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
