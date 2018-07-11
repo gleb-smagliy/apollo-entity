@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FieldGuard from '../../field-guard';
 
 import { Consumer } from '../../entity-context';
 
@@ -8,9 +9,11 @@ const EntityMap = ({
   children
 }) => (
   <Consumer>
-    {
-      ({ entity }) => children(map(entity))
-    }
+    {({ entity }) => (
+      <FieldGuard value={map(entity)}>
+        {children}
+      </FieldGuard>
+    )}
   </Consumer>
 );
 
